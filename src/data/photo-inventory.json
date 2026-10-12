@@ -1,0 +1,20 @@
+{
+  "researchedAt": "2026-10-12",
+  "reuseStatus": "owner-requested-private-presentation",
+  "municipalListing": {
+    "url": "https://turismo.torrevieja.es/es/poi/vita-verde-hostal-boutique",
+    "assets": [
+      { "id": "VV-MUN-01", "subject": "facade / listing cover", "url": "https://turismo.torrevieja.es/sites/default/files/styles/hero_cabecera/public/2026-04/Vita%20Verde%20Torrevieja%20%283%29.jpg.webp?itok=lBZVmpRW", "placement": ["hero", "exterior"], "permission": "owner-requested-private-demo-only" },
+      { "id": "VV-MUN-02", "subject": "property photo", "url": "https://turismo.torrevieja.es/sites/default/files/2026-04/Vita%20Verde%20Torrevieja%20%285%29_0.jpg", "placement": ["gallery"], "permission": "owner-requested-private-demo-only" },
+      { "id": "VV-MUN-03", "subject": "patio", "url": "https://turismo.torrevieja.es/sites/default/files/2026-04/Vita%20Verde%20Torrevieja%20%284%29_0.jpg", "placement": ["exterior", "gallery"], "permission": "owner-requested-private-demo-only" },
+      { "id": "VV-MUN-04", "subject": "facade", "url": "https://turismo.torrevieja.es/sites/default/files/2026-04/Vita%20Verde%20Torrevieja%20%283%29_1.jpg", "placement": ["exterior", "gallery"], "permission": "owner-requested-private-demo-only" },
+      { "id": "VV-MUN-05", "subject": "bathroom", "url": "https://turismo.torrevieja.es/sites/default/files/2026-04/Vita%20Verde%20Torrevieja%20%282%29_0.jpg", "placement": ["not-displayed"], "permission": "owner-requested-private-demo-only", "notes": "Removed from the galleries at the owner's request." },
+      { "id": "VV-MUN-06", "subject": "guest room", "url": "https://turismo.torrevieja.es/sites/default/files/2026-04/Vita%20Verde%20Torrevieja%20%281%29_0.jpg", "placement": ["rooms", "gallery"], "permission": "owner-requested-private-demo-only" }
+    ]
+  },
+  "otherSources": [
+    { "id": "VV-BOOKING-GALLERY", "url": "https://www.booking.com/hotel/es/vita-verde.es.html", "reportedCount": "featured images plus 41 additional photos", "permission": "unconfirmed", "notes": "Do not download or rehost without owner-supplied originals or explicit permission." },
+    { "id": "VV-HOSTELWORLD-01", "subject": "guest room", "url": "https://www.hostelworld.com/es/hoteles/p/336485/vita-verde/", "imageUrl": "https://a.hwstatic.com/image/upload/f_auto%2Cq_auto/propertyimages/3/336485/jpbkmgvutyahwjqqbzbw.jpg", "placement": ["home-gallery", "rooms-gallery"], "permission": "owner-requested-private-demo-only", "notes": "Actual property bedroom photo. Alt text does not assign it to a specific room category." },
+    { "id": "VV-CV-PORTAL", "url": "https://www.comunitatvalenciana.com/en/alacant-alicante/torrevieja/accommodation/hotels/vita-verde", "reportedCount": "one listing cover image", "permission": "not granted; page says all rights reserved" }
+  ]
+}

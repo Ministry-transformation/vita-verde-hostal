@@ -1,0 +1,16 @@
+# Dependencies and build output
+node_modules/
+dist/
+.astro/
+.tmp/
+
+# Local environment and platform state
+.env
+.env.*
+!.env.example
+.vercel/
+.netlify/
+
+# Operating system files
+.DS_Store
+Thumbs.db
