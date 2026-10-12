@@ -4,6 +4,7 @@ import { copy, bookingUrl, tourismUrl, mapsUrl, realPhotos, roomCategories } fro
 export function getStaticPaths() { return ['es', 'en'].map((locale) => ({ params: { locale } })); }
 const { locale } = Astro.params;
 const t = copy[locale];
+const withBase = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 const title = locale === 'es' ? 'Vita Verde Hostal Boutique en Torrevieja' : 'Vita Verde Boutique Hostal in Torrevieja';
 const heroDescription = locale === 'es' ? 'Doce habitaciones en una calle tranquila del centro de Torrevieja, cerca de los servicios de la ciudad.' : 'Twelve rooms on a quiet street in central Torrevieja, close to the city’s everyday services.';
 const homeGalleryPhotos = [realPhotos[3], realPhotos[1], realPhotos[2], realPhotos[4], realPhotos[5]];
@@ -17,7 +18,7 @@ const homeGalleryPhotos = [realPhotos[3], realPhotos[1], realPhotos[2], realPhot
           <p class="hero-copy">{heroDescription}</p>
           <div class="hero-buttons">
             <a class="button primary" href={bookingUrl} target="_blank" rel="noreferrer">{t.availability}<span aria-hidden="true">↗</span></a>
-            <a class="text-link" href={t.paths[1]}>{t.explore}<span aria-hidden="true">→</span></a>
+            <a class="text-link" href={withBase(t.paths[1])}>{t.explore}<span aria-hidden="true">→</span></a>
           </div>
         </div>
         <figure class="hero-photo"><img src={realPhotos[0].src} alt={locale === 'es' ? 'Fachada de Vita Verde Hostal Boutique en Torrevieja' : 'Vita Verde Hostal Boutique facade in Torrevieja'} fetchpriority="high" width="1400" height="933" /><figcaption>{locale === 'es' ? 'Calle San Pascual, 175' : 'Calle San Pascual, 175'}</figcaption></figure>
@@ -51,7 +52,7 @@ const homeGalleryPhotos = [realPhotos[3], realPhotos[1], realPhotos[2], realPhot
       <div class="essence-copy">
         <h2 id="essence-title" class="display section-title" set:html={t.essenceTitle} />
         <p>{t.essenceText}</p>
-        <a class="text-link" href={t.paths[2]}>{t.story}<span aria-hidden="true">→</span></a>
+        <a class="text-link" href={withBase(t.paths[2])}>{t.story}<span aria-hidden="true">→</span></a>
       </div>
       <figure class="essence-image"><img src={realPhotos[2].src} alt={locale === 'es' ? 'Patio de Vita Verde con plantas y zona de descanso' : 'Vita Verde patio with plants and a place to sit'} loading="lazy" width="1200" height="900" /><figcaption>{locale === 'es' ? 'El patio de Vita Verde' : 'The Vita Verde patio'}</figcaption></figure>
     </section>
@@ -60,7 +61,7 @@ const homeGalleryPhotos = [realPhotos[3], realPhotos[1], realPhotos[2], realPhot
       <div class="wrap">
         <h2 id="comfort-title" class="display section-title">{t.comfortTitle}</h2>
         <ul class="amenity-list">{t.comforts.map((item) => <li>{item}</li>)}</ul>
-        <a class="text-link" href={t.paths[2]}>{locale === 'es' ? 'Ver servicios y condiciones' : 'See amenities and stay details'}<span aria-hidden="true">→</span></a>
+        <a class="text-link" href={withBase(t.paths[2])}>{locale === 'es' ? 'Ver servicios y condiciones' : 'See amenities and stay details'}<span aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -74,7 +75,7 @@ const homeGalleryPhotos = [realPhotos[3], realPhotos[1], realPhotos[2], realPhot
     <section class="location" aria-labelledby="location-title">
       <div class="wrap location-grid">
         <div><h2 id="location-title" class="display section-title">{t.destinationTitle}</h2><p>{t.pages.location.text}</p><a class="button dark" href={mapsUrl} target="_blank" rel="noreferrer">{locale === 'es' ? 'Ver ruta en el mapa' : 'Get directions'}<span aria-hidden="true">↗</span></a></div>
-        <figure class="location-image"><img src="/images/coast-illustrative.jpg" alt={locale === 'es' ? 'Escena de costa ilustrativa generada con IA, no es una fotografía local' : 'AI-generated illustrative coastal scene, not a local photograph'} loading="lazy" width="1536" height="1024" /><figcaption>{t.conceptPhotoNote}</figcaption></figure>
+        <figure class="location-image"><img src={withBase('/images/coast-illustrative.jpg')} alt={locale === 'es' ? 'Escena de costa ilustrativa generada con IA, no es una fotografía local' : 'AI-generated illustrative coastal scene, not a local photograph'} loading="lazy" width="1536" height="1024" /><figcaption>{t.conceptPhotoNote}</figcaption></figure>
       </div>
     </section>
 

@@ -5,7 +5,8 @@ const { locale = 'es', title, description, active = 0 } = Astro.props;
 const t = copy[locale];
 const other = copy[locale === 'es' ? 'en' : 'es'];
 const country = locale === 'es' ? 'España' : 'Spain';
-const navLinks = t.nav.map((label, i) => ({ label, href: t.paths[i] }));
+const withBase = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+const navLinks = t.nav.map((label, i) => ({ label, href: withBase(t.paths[i]) }));
 ---
 <!doctype html>
 <html lang={t.lang}>
@@ -23,22 +24,22 @@ const navLinks = t.nav.map((label, i) => ({ label, href: t.paths[i] }));
     <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_GB'} />
     <meta property="og:image" content="https://turismo.torrevieja.es/sites/default/files/styles/hero_cabecera/public/2026-04/Vita%20Verde%20Torrevieja%20%283%29.jpg.webp?itok=lBZVmpRW" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" hreflang="es" href={copy.es.paths[active]} />
-    <link rel="alternate" hreflang="en" href={copy.en.paths[active]} />
-    <link rel="alternate" hreflang="x-default" href={copy.es.paths[active]} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="alternate" hreflang="es" href={withBase(copy.es.paths[active])} />
+    <link rel="alternate" hreflang="en" href={withBase(copy.en.paths[active])} />
+    <link rel="alternate" hreflang="x-default" href={withBase(copy.es.paths[active])} />
     <title>{title}</title>
     <slot name="head" />
   </head>
   <body>
     <header class="site-header">
       <div class="wrap header-inner">
-        <a class="wordmark" href={t.paths[0]} aria-label="Vita Verde, Torrevieja">VITA VERDE<span>TORREVIEJA</span></a>
+        <a class="wordmark" href={withBase(t.paths[0])} aria-label="Vita Verde, Torrevieja">VITA VERDE<span>TORREVIEJA</span></a>
         <nav class="main-nav" id="main-nav" aria-label={locale === 'es' ? 'Navegación principal' : 'Main navigation'}>
           {navLinks.map((item, i) => <a href={item.href} aria-current={active === i ? 'page' : undefined}>{item.label}</a>)}
         </nav>
         <div class="header-actions">
-          <a class="locale" href={other.paths[active]} lang={other.lang} aria-label={locale === 'es' ? 'Switch to English' : 'Cambiar a español'}>{t.otherLocale}</a>
+          <a class="locale" href={withBase(other.paths[active])} lang={other.lang} aria-label={locale === 'es' ? 'Switch to English' : 'Cambiar a español'}>{t.otherLocale}</a>
           <a class="button primary header-book" href={bookingUrl} target="_blank" rel="noreferrer">{t.availability}<span aria-hidden="true">↗</span></a>
           <button class="menu-toggle" type="button" aria-label={locale === 'es' ? 'Abrir menú' : 'Open menu'} data-open-label={locale === 'es' ? 'Abrir menú' : 'Open menu'} data-close-label={locale === 'es' ? 'Cerrar menú' : 'Close menu'} aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
         </div>
@@ -48,7 +49,7 @@ const navLinks = t.nav.map((label, i) => ({ label, href: t.paths[i] }));
     <slot />
     <footer class="site-footer">
       <div class="wrap footer-main">
-        <div class="footer-brand-block"><a class="wordmark" href={t.paths[0]}>VITA VERDE<span>TORREVIEJA</span></a><p>{locale === 'es' ? 'Hostal boutique en el centro de Torrevieja.' : 'A boutique hostal in central Torrevieja.'}</p></div>
+        <div class="footer-brand-block"><a class="wordmark" href={withBase(t.paths[0])}>VITA VERDE<span>TORREVIEJA</span></a><p>{locale === 'es' ? 'Hostal boutique en el centro de Torrevieja.' : 'A boutique hostal in central Torrevieja.'}</p></div>
         <div class="footer-links"><h2>{locale === 'es' ? 'Explora' : 'Explore'}</h2>{navLinks.map((item) => <a href={item.href}>{item.label}</a>)}</div>
         <div class="footer-contact"><h2>{locale === 'es' ? 'Contacto' : 'Contact'}</h2><a href="tel:+34611978571">+34 611 978 571</a><a href="mailto:vitaverde.torrevieja@gmail.com">vitaverde.torrevieja@gmail.com</a><p>{t.contact.hours}</p></div>
         <div class="footer-address"><h2>{locale === 'es' ? 'Dirección' : 'Address'}</h2><p>Calle San Pascual, 175<br />03181 Torrevieja, Alicante, {country}</p><a href={tourismUrl} target="_blank" rel="noreferrer">{t.source}<span aria-hidden="true">↗</span></a></div>

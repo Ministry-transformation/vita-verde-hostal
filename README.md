@@ -1,6 +1,6 @@
 # Vita Verde Hostal Boutique - presentation demo
 
-An unofficial, local-only bilingual concept site with an editorial Mediterranean direction. It is a private owner presentation, is not the hotel's official website, and does not process bookings or enquiries.
+An unofficial bilingual concept site with an editorial Mediterranean direction. It is a presentation proposal, not the hotel's official website, and does not process bookings or enquiries. GitHub Pages publishes this demo publicly; verify all content and obtain the required photo permissions before treating it as the hotel's production website.
 
 ## Run locally
 
@@ -29,6 +29,10 @@ Business details and eight Booking.com room categories, plus stay policies, amen
 
 Booking.com availability links leave the demo and open the existing listing.
 
+## Public demo
+
+The GitHub Actions workflow builds the static site and publishes it to GitHub Pages at `https://ministry-transformation.github.io/vita-verde-hostal/`. Each push to `main` triggers a new deployment. The site is marked `noindex, nofollow` while it remains a presentation proposal.
+
 ## Before production use
 
-Before public use, request owner/photographer approval and original full-resolution photos, verify room-to-photo mapping, room categories, policies and current contact data, then host approved optimized assets locally. This project is a private presentation demo only; it is marked `noindex, nofollow`.
+Before production use as the hotel's official website, request owner/photographer approval and original full-resolution photos, verify room-to-photo mapping, room categories, policies and current contact data, then host approved optimized assets locally. This demo is marked `noindex, nofollow`.
