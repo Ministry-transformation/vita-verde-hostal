@@ -54,7 +54,7 @@ const navLinks = t.nav.map((label, i) => ({ label, href: withBase(t.paths[i]) })
         <div class="footer-contact"><h2>{locale === 'es' ? 'Contacto' : 'Contact'}</h2><a href="tel:+34611978571">+34 611 978 571</a><a href="mailto:vitaverde.torrevieja@gmail.com">vitaverde.torrevieja@gmail.com</a><p>{t.contact.hours}</p></div>
         <div class="footer-address"><h2>{locale === 'es' ? 'Dirección' : 'Address'}</h2><p>Calle San Pascual, 175<br />03181 Torrevieja, Alicante, {country}</p><a href={tourismUrl} target="_blank" rel="noreferrer">{t.source}<span aria-hidden="true">↗</span></a></div>
       </div>
-      <div class="wrap footer-bottom"><span>{t.footerNote}</span><a href={bookingUrl} target="_blank" rel="noreferrer">{t.book}<span aria-hidden="true">↗</span></a></div>
+      <div class="wrap footer-bottom"><span>{t.footerNote}</span><span class="footer-credit">{locale === 'es' ? 'Sitio web desarrollado por Ministerio de Transformación' : 'Website developed by Ministry of Transformation'}</span><a href={bookingUrl} target="_blank" rel="noreferrer">{t.book}<span aria-hidden="true">↗</span></a></div>
     </footer>
     <script>
       const toggle = document.querySelector('.menu-toggle');
